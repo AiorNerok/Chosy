@@ -6,11 +6,12 @@ export const Photo: FC<PhotoComponentProps> = ({
   size = "75",
   src,
   handlerToggle,
-  classes
+  classes,
 }) => {
   return (
     <div
       onClick={handlerToggle}
+      onKeyDown={() => ({})}
       style={{
         width: `${size}px`,
         height: `${size}px`,

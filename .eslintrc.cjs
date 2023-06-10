@@ -13,10 +13,27 @@ module.exports = {
     },
     "import/resolver": {
       node: {
-        paths: ["src"],
+        paths: ["./src"],
         extensions: [".js", ".jsx", ".ts", ".tsx"],
       },
     },
   },
-  rules: {},
+  rules: {
+    "import/no-unresolved": "off",
+    "react/react-in-jsx-scope": "off",
+    "jsx-a11y/no-static-element-interactions": [
+      "off",
+      {
+        handlers: [
+          "onClick",
+          "onMouseDown",
+          "onMouseUp",
+          "onKeyPress",
+          "onKeyDown",
+          "onKeyUp",
+        ],
+        allowExpressionValues: true,
+      },
+    ],
+  },
 };

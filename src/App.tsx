@@ -14,13 +14,13 @@ function App() {
   });
 
   const PokemonList = useCallback(async () => {
-    const res = await APIGetPokemonList().then((r) => r.results);
+    const listPokemon = await APIGetPokemonList().then((r) => r.results);
 
-    const res2 = res.map(async (el) => {
+    const ListPhotoPokemons = listPokemon.map(async (el) => {
       return await APIGetPokemonPhoto(el.name);
     });
 
-    Promise.all(res2).then((r) => {
+    Promise.all(ListPhotoPokemons).then((r) => {
       const list = r.map((el, index) => {
         return {
           name: el.name,
