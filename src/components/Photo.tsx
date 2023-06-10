@@ -11,7 +11,6 @@ export const Photo: FC<PhotoComponentProps> = ({
   return (
     <div
       onClick={handlerToggle}
-      onKeyDown={() => ({})}
       style={{
         width: `${size}px`,
         height: `${size}px`,
@@ -20,7 +19,7 @@ export const Photo: FC<PhotoComponentProps> = ({
         isSelect ? "border-chosy-purple" : "border-transparent"
       }`}
     >
-      <img className="w-full h-full" src={src} alt="pokemon pic" />
+      <img className="w-full h-full" src={src} alt="pokemon pic" loading="lazy" />
     </div>
   );
 };
