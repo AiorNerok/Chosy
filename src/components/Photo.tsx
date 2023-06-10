@@ -6,6 +6,7 @@ export const Photo: FC<PhotoComponentProps> = ({
   size = "75",
   src,
   handlerToggle,
+  classes
 }) => {
   return (
     <div
@@ -14,7 +15,7 @@ export const Photo: FC<PhotoComponentProps> = ({
         width: `${size}px`,
         height: `${size}px`,
       }}
-      className={`rounded-full box-border border-2 ${
+      className={`rounded-full box-border border-2 ${classes} ${
         isSelect ? "border-chosy-purple" : "border-transparent"
       }`}
     >

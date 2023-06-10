@@ -34,6 +34,7 @@ export type PhotoComponentProps = {
   src: string
   isSelect: boolean
   handlerToggle?: ()=>void
+  classes?: string
 }
 
 export type DataProps = {
