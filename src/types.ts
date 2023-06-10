@@ -20,3 +20,24 @@ export type PokemonPhotoProps=OtherProps&{
         }
     }
 }
+
+export type IconProps<T=string> = Partial<{
+  size: T
+  width:T
+  height: T
+  strokeColor:T
+  strokeWidth: T
+}>
+
+export type PhotoComponentProps = {
+  size: string
+  src: string
+  isSelect: boolean
+  handlerToggle?: ()=>void
+}
+
+export type DataProps = {
+  name: string,
+  src: string,
+  isSelected: boolean
+}

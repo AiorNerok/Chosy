@@ -7,6 +7,7 @@ export default {
         "chosy-gray-purple": "#EFEDF5",
         "chosy-gray-dark": "#51515A",
         "chosy-gray": "#A4A5AE",
+        "chosy-purple": "#9334e6",
       },
     },
   },
