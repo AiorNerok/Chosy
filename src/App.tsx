@@ -7,6 +7,11 @@ import { IconCheck } from "./components/assets";
 
 function App() {
   const [data, setData] = useState<DataProps[] | []>([]);
+  const [selectPokemon, setSelectPokemon] = useState<DataProps>({
+    name: "",
+    isSelected: false,
+    src: "",
+  });
 
   const PokemonList = useCallback(async () => {
     const res = await APIGetPokemonList().then((r) => r.results);
@@ -25,6 +30,7 @@ function App() {
       });
 
       setData(list);
+      setSelectPokemon(list.filter((el) => el.isSelected)[0]);
     });
   }, []);
 
@@ -36,6 +42,7 @@ function App() {
     const newData = data.map((el) => {
       if (el.name === name) {
         el.isSelected = true;
+        setSelectPokemon(el);
         return el;
       }
 
@@ -61,22 +68,19 @@ function App() {
           </span>
         </div>
         <div className="flex justify-center items-center mb-4">
-          {data &&
-            data.map((el) => {
-              if (el.isSelected) {
-                return (
-                  <Photo
-                    key={el.name}
-                    isSelect={false}
-                    size="96"
-                    src={el.src}
-                  />
-                );
-              }
-            })}
+          {selectPokemon && (
+            <Photo
+              key={selectPokemon.name}
+              isSelect={false}
+              size="96"
+              src={selectPokemon.src}
+            />
+          )}
         </div>
         <div className="flex items-center justify-center mb-3">
-          <span className="text-chosy-gray-dark text-sm">Выберите фото кота</span>
+          <span className="text-chosy-gray-dark text-sm">
+            Выберите фото кота
+          </span>
         </div>
         <div className="flex flex-wrap gap-2">
           {data &&
